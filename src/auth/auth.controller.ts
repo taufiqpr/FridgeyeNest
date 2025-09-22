@@ -30,7 +30,6 @@ export class AuthController {
     return this.authService.getProfile(userId);
   }
 
-  // Alternatif GET by id untuk profil: /auth/profile/:id
   @UseGuards(JwtAuthGuard)
   @Get('profile/:id')
   getProfileById(@Param('id', ParseIntPipe) id: number) {
