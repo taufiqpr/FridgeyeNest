@@ -8,6 +8,10 @@ import { PrismaUserRepository, USER_REPOSITORY } from './repositories/user.repos
 import { RegisterUseCase } from './use-cases/register.use-case';
 import { LoginUseCase } from './use-cases/login.use-case';
 import { CONFIG_KEYS } from 'src/config/config.keys';
+import { JwtStrategy } from './strategies/jwt.strategy';
+import { GetProfileUseCase } from './use-cases/get-profile.use-case';
+import { UpdateProfileUseCase } from './use-cases/update-profile.use-case';
+import { DeleteProfileUseCase } from './use-cases/delete-profile.use-case';
 
 @Module({
   imports: [
@@ -28,6 +32,10 @@ import { CONFIG_KEYS } from 'src/config/config.keys';
     { provide: USER_REPOSITORY, useExisting: PrismaUserRepository },
     RegisterUseCase,
     LoginUseCase,
+    JwtStrategy,
+    GetProfileUseCase,
+    UpdateProfileUseCase,
+    DeleteProfileUseCase,
   ],
   controllers: [AuthController]
 })
